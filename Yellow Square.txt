@@ -1,0 +1,13 @@
+// write your code here
+var img = new SimpleImage(200,200);
+print("Black",img);
+for(var pixel of img.values()){
+    pixel.setRed(150);
+    pixel.setBlue(100);
+}
+print("Magenta",img);
+for(var pixel of img.values()){
+    pixel.setRed(255);
+    pixel.setGreen(255);
+}
+print("Yellow",img);
