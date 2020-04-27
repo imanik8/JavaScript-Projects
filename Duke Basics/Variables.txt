@@ -1,0 +1,16 @@
+// write your code here
+var x = 3;
+var y = 4;
+var z = x + 2 * y;
+print(x,y,z);
+
+var x = 3;
+var y = 2;
+y=x;
+print(x,y);
+
+var image = new SimpleImage("drewRobert.png");
+print(image);
+var w = image.getWidth();
+var h = image.getHeight();
+print(w,h);
