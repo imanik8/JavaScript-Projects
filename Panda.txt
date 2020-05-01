@@ -1,0 +1,14 @@
+var border = new SimpleImage("smallpanda.png"); 
+
+for (var pix of border.values()){
+    if(pix.getX()< border.getWidth()/27 || pix.getY() > (border.getHeight()/27) * 26){
+        pix.setRed(0);
+        pix.setBlue(0);
+        pix.setGreen(0); 
+    }if(pix.getX()> border.getWidth()/27 * 26 || pix.getY() < border.getHeight()/27){
+         pix.setRed(0);
+        pix.setBlue(0);
+        pix.setGreen(0); 
+    }
+}
+print(border); 
