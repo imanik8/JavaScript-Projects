@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <style>
+      h1{
+          color: dimgray;
+      }
+      .orangeback{
+          background-color: orange;
+      }
+      .fuchsiaback{
+          background-color: fuchsia;
+      }
+      .blueback{
+          background-color: blue;
+      }
+      .violetback{
+          background-color: purple;
+      }
+  </style>
+  <script>
+      function changeColor(){
+          var divElement1 = document.getElementById("div1");
+          var divElement2 = document.getElementById("div2");
+          divElement1.className = "blueback";
+          divElement2.className = "violetback";
+      }
+      function changeText(){
+        var divElement1 = document.getElementById("div1");
+        var divElement2 = document.getElementById("div2");
+        divElement1.innerHTML = "Aniket";
+        divElement2.innerHTML = "Kumar";
+      }
+      function changeColor1(){
+          var divElement1 = document.getElementById("div1").style.color = "red";
+      }
+  </script>
+    <title>Change Pages Interactively</title>
+</head>
+<body>
+    <h1>Change Pages Interactively Practice</h1>
+    <div id="div1" class="orangeback">Here is Div 1
+        <input type="button" value="ChangeColor1" class="btn-danger" onclick="changeColor1()">
+    </div>
+    <div id="div2" class="fuchsiaback">Here is Div 2</div>
+    <p>
+        <input type="button" value="Change Colours" class="btn-primary" onclick="changeColor()">
+        <input type="button" value="Change Texts" class="btn-danger" onclick="changeText()">
+    </p>
+    <p>Click on "My Button" to display its value attribute.</p>
+
+<button id="myBtn" name="myname" value="myvalue" onclick="alert(this.value)">My Button</button>
+
+<p>Click on "Try it" to change the value attribute of "My Button".</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><b>Tip:</b> Click on "My Button" before and after you have clicked on "Try it".</p>
+
+<script>
+function myFunction() {
+  document.getElementById("myBtn").value = "newButtonValue";
+}
+</script>
+
+</body>
+</html>
