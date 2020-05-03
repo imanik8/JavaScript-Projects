@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Practice</title>
+    <style>
+        canvas{
+            width: 200pt;
+            height: 100pt;
+            margin: 10px;
+            border: 1px solid lightgray;
+        }
+        input{
+            font-size: 20pt;
+        }
+        .orangeback{
+          background-color: orange;
+      }
+      .fuchsiaback{
+          background-color: fuchsia;
+      }
+      .blueback{
+          background-color: blue;
+      }
+      .violetback{
+          background-color: purple;
+      }
+    </style>
+    <script>
+        function changeColor(){
+          var divElement1 = document.getElementById("d1");
+          var divElement2 = document.getElementById("d2");
+          divElement1.className = "blueback";
+          divElement2.className = "violetback";
+      }
+      function doRed(){
+          var dd1 = document.getElementById("d1");
+          dd1.style.backgroundColor='red';
+      }
+      function doBlue(){
+        var dd1 = document.getElementById("d1");
+          dd1.style.backgroundColor='blue';
+        var context = canvas.getContext("2d");
+        context.fillStyle = 'yellow';
+        context.fillRect(10,10,60,60);
+        context.fillRect(80,10,60,60);
+        context.fillStyle = 'black';
+        context.font = "20px Arial";
+        context.fillText("Hello", 15, 45);
+      }
+    </script>
+</head>
+<body>
+    <h1>Canvas Practice</h1>
+    <canvas id="d1" class="orangeback"></canvas>
+    <canvas id="d2" class="fuchsiaback"></canvas>
+    <p>
+        <input type="button" value="Change Colours" onclick="changeColor()">
+        <input type="button" value="Make Red" onclick="doRed()">
+        <input type="button" value="Make Blue" onclick="doBlue()">
+    </p>
+</body>
+</html>
