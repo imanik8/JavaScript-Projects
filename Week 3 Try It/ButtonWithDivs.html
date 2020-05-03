@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button WIth Divs</title>
+    <style>
+        h1{
+            font-family: Arial;
+            color: dimgray;
+        }
+        div{
+            width: 140pt;
+            padding: 5pt;
+            margin: 10pt;
+            border: 1px solid lightgray;
+            font-size: 16pt;
+        }
+        #div1{
+            background-color: lightblue;
+        }
+        #div2{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        function dochange(){
+            alert('clicked button through JavaScript');
+        }
+        function dochange1(){
+        var choice = prompt("Please Enter Your Name"," Aniket Kumar");
+        var r = confirm("Press OK to confirm");
+        if (r == true) {
+        alert('Hello There' + choice);
+        } else {
+        alert('Try Again Bro!!');
+        }
+        }
+    </script>
+</head>
+<body>
+    <h1>Buttons With Div Practice</h1>
+    <div id="div1">Here is Div 1</div>
+    <div id="div2">Here is Div 2</div>
+    <p>
+        <input type="button" value="Change" onclick="dochange()">
+        <input type="button" value="Change" onclick="dochange1()">
+    </p>
+</body>
+</html>
