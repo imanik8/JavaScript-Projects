@@ -383,6 +383,7 @@ In the end, John would like to have 2 arrays:
 GOOD LUCK 😀
 */
 
+/*
 function tipCalculator(bill) {
     var percentage;
     if (bill < 50) {
@@ -402,3 +403,100 @@ var finalValues = [bills[0] + tips[0],
                    bills[1] + tips[1],
                    bills[2] + tips[2]];
 console.log(tips, finalValues);
+*/
+
+
+
+/*****************************
+* Objects and properties
+*/
+/*
+// Object literal
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false
+};
+console.log(john.firstName);
+console.log(john['lastName']);
+var x = 'birthYear';
+console.log(john[x]);
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+// new Object syntax
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
+*/
+
+
+
+/*****************************
+* Objects and methods
+*/
+/*
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1992,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false,
+    calcAge: function() {
+        this.age = 2018 - this.birthYear;
+    }
+};
+john.calcAge();
+console.log(john);
+*/
+
+
+
+/*****************************
+* CODING CHALLENGE 4
+*/
+
+/*
+Let's remember the first coding challenge where Mark and John compared their BMIs. Let's now implement the same functionality with objects and methods.
+1. For each of them, create an object with properties for their full name, mass, and height
+2. Then, add a method to each object to calculate the BMI. Save the BMI to the object and also return it from the method.
+3. In the end, log to the console who has the highest BMI, together with the full name and the respective BMI. Don't forget they might have the same BMI.
+Remember: BMI = mass / height^2 = mass / (height * height). (mass in kg and height in meter).
+GOOD LUCK 😀
+*/
+
+var john = {
+    fullName : 'John Smith',
+    mass : 110,
+    height : 1.95,
+    calcBMI : function() {
+        this.bmi = this.mass / this.height^2;
+        return this.bmi;
+    }
+}
+
+var mike = {
+    fullName : 'Mike Miller',
+    mass : 78,
+    height : 1.69,
+    calcBMI : function() {
+        this.bmi = this.mass / this.height^2;
+        return this.bmi;
+    }
+}
+
+if (john.calcBMI()>mike.calcBMI()){
+    console.log(john.fullName + ' has a higher BMI of ' + john.bmi);
+}
+else if (john.calcBMI()<mike.calcBMI()){
+    console.log(mike.fullName + ' has a higher BMI of ' + mike.bmi);
+}
+else{
+    console.log('They both have the same BMI');
+}
