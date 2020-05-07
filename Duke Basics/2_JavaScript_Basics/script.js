@@ -260,23 +260,145 @@ John and Mike both play basketball in different teams. In the latest 3 games, Jo
 5. Like before, change the scores to generate different winners, keeping in mind there might be draws.
 GOOD LUCK 😀
 */
+/*
+var scoreJohn = (189 + 120 + 103) / 3;
+var scoreMike = (129 + 94 + 123) / 3;
+var scoreMary = (97 + 134 + 105) / 3;
+console.log(scoreJohn, scoreMike, scoreMary);
+if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
+    console.log('John\'s team wins with ' + scoreJohn + ' points');
+} else if (scoreMike > scoreJohn && scoreMike > scoreMary) {
+    console.log('Mike\'s team wins with ' + scoreMike + ' points');
+} else if (scoreMary > scoreJohn && scoreMary > scoreMike) {
+    console.log('Mary\'s team wins with ' + scoreMary + ' points');
+} else {
+    console.log('There is a draw');
+}
+if (scoreJohn > scoreMike) {
+    console.log('John\'s team wins with ' + scoreJohn + ' points');
+} else if (scoreMike > scoreJohn) {
+    console.log('Mike\'s team wins with ' + scoreMike + ' points');
+} else {
+    console.log('There is a draw');
+}
+*/
 
-avgJohnTeam = (89+120+103)/3;
-avgMikeTeam = (116+94+123)/3;
-avgMaryTeam = (97+134+105)/3;
-if(avgJohnTeam > avgMikeTeam && avgMaryTeam)
-{
-    console.log('Team John Won with avg Score of ' + avgJohnTeam);
+
+
+/*****************************
+* Functions
+*/
+/*
+function calculateAge(birthYear) {
+    return 2018 - birthYear;
 }
-else if(avgMaryTeam > avgJohnTeam && avgMikeTeam)
-{
-    console.log('Team Mary Won with avg Score of ' + avgMaryTeam);
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1948);
+var ageJane = calculateAge(1969);
+console.log(ageJohn, ageMike, ageJane);
+function yearsUntilRetirement(year, firstName) {
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+    
+    if (retirement > 0) {
+        console.log(firstName + ' retires in ' + retirement + ' years.');
+    } else {
+        console.log(firstName + ' is already retired.')
+    }
+    
 }
-else if(avgMikeTeam > avgJohnTeam && avgMaryTeam)
-{
-    console.log('Team Mike Won with avg Score of ' + avgMikeTeam);
+yearsUntilRetirement(1990, 'John');
+yearsUntilRetirement(1948, 'Mike');
+yearsUntilRetirement(1969, 'Jane');
+*/
+
+
+
+/*****************************
+* Function Statements and Expressions
+*/
+/*
+// Function declaration
+// function whatDoYouDo(job, firstName) {}
+// Function expression
+var whatDoYouDo = function(job, firstName) {
+    switch(job) {
+        case 'teacher':
+            return firstName + ' teaches kids how to code';
+        case 'driver':
+            return firstName + ' drives a cab in Lisbon.'
+        case 'designer':
+            return firstName + ' designs beautiful websites';
+        default:
+            return firstName + ' does something else';
+    }
 }
-else
-{
-    console.log('Match Draw!! ' + 'Average Team Scores for John, Mary and Mike are ' + avgJohnTeam + ', ' + avgMaryTeam + ' and ' + avgMikeTeam);
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('designer', 'Jane'));
+console.log(whatDoYouDo('retired', 'Mark'));
+*/
+
+
+
+/*****************************
+* Arrays
+*/
+/*
+// Initialize new array
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948);
+console.log(names[2]);
+console.log(names.length);
+// Mutate array data
+names[1] = 'Ben';
+names[names.length] = 'Mary';
+console.log(names);
+// Different data types
+var john = ['John', 'Smith', 1990, 'designer', false];
+john.push('blue');
+john.unshift('Mr.');
+console.log(john);
+john.pop();
+john.pop();
+john.shift();
+console.log(john);
+console.log(john.indexOf(23));
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
+console.log(isDesigner);
+*/
+
+
+
+/*****************************
+* CODING CHALLENGE 3
+*/
+
+/*
+John and his family went on a holiday and went to 3 different restaurants. The bills were $124, $48 and $268.
+To tip the waiter a fair amount, John created a simple tip calculator (as a function). He likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is between $50 and $200, and 10% if the bill is more than $200.
+In the end, John would like to have 2 arrays:
+1) Containing all three tips (one for each bill)
+2) Containing all three final paid amounts (bill + tip).
+(NOTE: To calculate 20% of a value, simply multiply it with 20/100 = 0.2)
+GOOD LUCK 😀
+*/
+
+function tipCalculator(bill) {
+    var percentage;
+    if (bill < 50) {
+        percentage = .2;
+    } else if (bill >= 50 && bill < 200) {
+        percentage = .15;
+    } else {
+        percentage = .1;
+    }
+    return percentage * bill;
 }
+var bills = [124, 48, 268];
+var tips = [tipCalculator(bills[0]),
+            tipCalculator(bills[1]),
+            tipCalculator(bills[2])];
+var finalValues = [bills[0] + tips[0],
+                   bills[1] + tips[1],
+                   bills[2] + tips[2]];
+console.log(tips, finalValues);
