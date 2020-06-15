@@ -1,5 +1,5 @@
 // Function COnstructor
-
+/*
 var Person = function(name, yearOfBirth, job) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
@@ -23,3 +23,28 @@ saket.calculateAge();
 console.log(john.lastName);
 console.log(himanshu.lastName);
 console.log(saket.lastName);
+*/
+
+
+//Object.create
+
+/*
+var personProto = {
+    calculateAge: function() {
+        console.log(2020 - this.yearOfBirth);
+    }
+};
+
+var john = Object.create(personProto);
+john.name = 'john';
+john.yearOfBirth = 1969;
+john.job = 'teacher';
+
+var jane = Object.create(personProto,
+    {
+        name: {value: 'Jane'},
+        yearOfBirth: {value: 1969},
+        job: {value: 'designer'}
+    });
+*/
+
