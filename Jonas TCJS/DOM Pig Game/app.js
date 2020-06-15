@@ -9,12 +9,13 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlaying;
 init();
 
 document.querySelector('.btn-roll').addEventListener('click', function(){
 
-    // 1. Random Number
+    if(gamePlaying){
+        // 1. Random Number
     var dice = Math.floor(Math.random() * 6) + 1;
 
     // 2. Display the result
@@ -31,11 +32,13 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
         //Next Player
         nextPlayer();
     }
+    }
 })
 
 
 document.querySelector(".btn-hold").addEventListener("click", function() {
-    // Add current score to global score
+    if(gamePlaying){
+        // Add current score to global score
     scores[activePlayer] += roundScore;
 
     //update the UI
@@ -47,12 +50,12 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
         document.querySelector(".dice").style.display = "none";
         document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
         document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+        gamePlaying = false;
     } else{
         //next player
         nextPlayer();
     }
-
-   
+    }
 })
 
 function nextPlayer(){
@@ -78,6 +81,7 @@ function init() {
     scores = [0, 0];
     roundScore = 0;
     activePlayer = 0;
+    gamePlaying = true;
 
     document.querySelector('.dice').style.display = 'none';
 
