@@ -125,6 +125,7 @@ var jane = Object.create(personProto,
 
  // Function returning Function
 
+ /*
  function interviewQuestion(job) {
      if(job === 'designer') {
          return function(name) {
@@ -155,3 +156,27 @@ var jane = Object.create(personProto,
  designerQuestion('Jane');
 
  interviewQuestion('teacher')('Mark');
+ */
+
+ // IIFE
+
+ /*
+ function game(){
+     var score = Math.random() * 10;
+     console.log(score >= 5);
+ }
+
+ game();
+ */
+
+ (function () {
+     var score = Math.random() * 10;
+     console.log(score >= 5);
+ })();
+
+ //console.log(score);
+
+ (function () {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})(5);
