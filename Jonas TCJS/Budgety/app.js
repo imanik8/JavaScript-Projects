@@ -125,6 +125,10 @@ var UiController = (function() {
         inputBtn: '.add__btn',
         incomeContainer: '.income__list',
         expensesContainer: '.expenses__list',
+        budgetLabel: '.budget__value',
+        incomeLabel: '.budget__income--value',
+        expensesLabel: '.budget__expenses--value',
+        percentageLabel: '.budget__expenses--percentage',
     };
 
     return {
@@ -171,6 +175,22 @@ var UiController = (function() {
             });
             
             fieldsArr[0].focus();
+        },
+
+        displayBudget: function(obj) {
+            var type;
+            obj.budget > 0 ? type = 'inc' : type = 'exp';
+            
+            document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type);
+            document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
+            document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
+            
+            if (obj.percentage > 0) {
+                document.querySelector(DOMstrings.percentageLabel).textContent = obj.percentage + '%';
+            } else {
+                document.querySelector(DOMstrings.percentageLabel).textContent = '---';
+            }
+            
         },
 
         getDOMstrings: function() {
@@ -234,9 +254,16 @@ var controller = (function(budgetCtrl, UICtrl) {
         }
     };
     
-    return{
-        init: function(){
+    return {
+        init: function() {
             console.log('Application has started.');
+            UICtrl.displayMonth();
+            UICtrl.displayBudget({
+                budget: 0,
+                totalInc: 0,
+                totalExp: 0,
+                percentage: -1
+            });
             setupEventListeners();
         }
     };
