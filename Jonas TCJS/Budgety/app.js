@@ -166,6 +166,45 @@ var UiController = (function() {
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
 
+        deleteItem: function(type, id) {
+            var ids, index;
+            
+            // id = 6
+            //data.allItems[type][id];
+            // ids = [1 2 4  8]
+            //index = 3
+            
+            ids = data.allItems[type].map(function(current) {
+                return current.id;
+            });
+
+            index = ids.indexOf(id);
+
+            if (index !== -1) {
+                data.allItems[type].splice(index, 1);
+            }
+            
+        },
+
+        calculateBudget: function() {
+            
+            // calculate total income and expenses
+            calculateTotal('exp');
+            calculateTotal('inc');
+            
+            // Calculate the budget: income - expenses
+            data.budget = data.totals.inc - data.totals.exp;
+            
+            // calculate the percentage of income that we spent
+            if (data.totals.inc > 0) {
+                data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+            } else {
+                data.percentage = -1;
+            }            
+            
+            // Expense = 100 and income 300, spent 33.333% = 100/300 = 0.3333 * 100
+        },
+
         clearFields: function() {
             var fields, fieldsArr;
             
