@@ -348,10 +348,9 @@ var UIController = (function() {
 })();
 
 
-//Global App Controller
-
+// GLOBAL APP CONTROLLER
 var controller = (function(budgetCtrl, UICtrl) {
-
+    
     var setupEventListeners = function() {
         var DOM = UICtrl.getDOMstrings();
         
@@ -367,7 +366,8 @@ var controller = (function(budgetCtrl, UICtrl) {
         
         document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType);        
     };
-
+    
+    
     var updateBudget = function() {
         
         // 1. Calculate the budget
@@ -392,7 +392,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         // 3. Update the UI with the new percentages
         UICtrl.displayPercentages(percentages);
     };
-
+    
     
     var ctrlAddItem = function() {
         var input, newItem;
@@ -445,6 +445,7 @@ var controller = (function(budgetCtrl, UICtrl) {
         }
     };
     
+    
     return {
         init: function() {
             console.log('Application has started.');
@@ -458,7 +459,8 @@ var controller = (function(budgetCtrl, UICtrl) {
             setupEventListeners();
         }
     };
+    
+})(budgetController, UIController);
 
-})(budgetController, UiController);
 
 controller.init();
