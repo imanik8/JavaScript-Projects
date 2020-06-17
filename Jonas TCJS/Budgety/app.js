@@ -129,6 +129,9 @@ var UiController = (function() {
         incomeLabel: '.budget__income--value',
         expensesLabel: '.budget__expenses--value',
         percentageLabel: '.budget__expenses--percentage',
+        container: '.container',
+        expensesPercLabel: '.item__percentage',
+        dateLabel: '.budget__title--month'
     };
 
     return {
@@ -206,15 +209,19 @@ var UiController = (function() {
 var controller = (function(budgetCtrl, UICtrl) {
 
     var setupEventListeners = function() {
-        var DOM = UICtrl.getDOMstrings;
-
-        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem); 
+        var DOM = UICtrl.getDOMstrings();
+        
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
         document.addEventListener('keypress', function(event) {
             if (event.keyCode === 13 || event.which === 13) {
                 ctrlAddItem();
             }
-            });
+        });
+        
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
+        
+        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType);        
     };
 
     var updateBudget = function() {
@@ -250,6 +257,33 @@ var controller = (function(budgetCtrl, UICtrl) {
             updateBudget();
             
             // 6. Calculate and update percentages
+            updatePercentages();
+        }
+    };
+    
+    
+    var ctrlDeleteItem = function(event) {
+        var itemID, splitID, type, ID;
+        
+        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+        
+        if (itemID) {
+            
+            //inc-1
+            splitID = itemID.split('-');
+            type = splitID[0];
+            ID = parseInt(splitID[1]);
+            
+            // 1. delete the item from the data structure
+            budgetCtrl.deleteItem(type, ID);
+            
+            // 2. Delete the item from the UI
+            UICtrl.deleteListItem(itemID);
+            
+            // 3. Update and show the new budget
+            updateBudget();
+            
+            // 4. Calculate and update percentages
             updatePercentages();
         }
     };
