@@ -50,4 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
       img: 'images/hotdog.png'
     }
   ]
+
+  const grid = document.querySelector('.grid')
+
+  //create your board
+  function createBoard() {
+    for (let i = 0; i < cardArray.length; i++) {
+      var card = document.createElement('img')
+      card.setAttribute('src', 'images/blank.png')
+      card.setAttribute('data-id', i)
+      //card.addEventListener('click', flipCard)
+      grid.appendChild(card)
+    }
+  }
 })
