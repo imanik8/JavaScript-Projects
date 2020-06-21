@@ -17,3 +17,21 @@ function randomSquare() {
   //assign the id of the randomPosition to hitPosition for us to use later
   hitPosition = randomPosition.id
 }
+
+square.forEach(id => {
+    id.addEventListener('mouseup', () => {
+      if(id.id === hitPosition){
+        result = result + 1
+        score.textContent = result
+        hitPosition=null
+      }
+    })
+  })
+  
+  
+  function moveMole() {
+    let timerId = null
+    timerId = setInterval(randomSquare, 500)
+  }
+  
+  moveMole()
