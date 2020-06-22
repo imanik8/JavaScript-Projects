@@ -121,5 +121,33 @@ document.addEventListener('DOMContentLoaded' () => {
       squares[currentPosition + index].classList.add('block')
       squares[currentPosition + index].style.backgroundImage = colors[random]
     })
-  }  
+  } 
+  
+  //undraw the shape
+  function undraw() {
+    current.forEach(index => {
+      squares[currentPosition + index].classList.remove('block')
+      squares[currentPosition + index].style.backgroundImage = 'none'
+    })
+  }
+
+  //move down on loop
+  function moveDown() {
+    undraw()
+    currentPosition = currentPosition += width
+    draw()
+    freeze()
+  }
+
+  startBtn.addEventListener('click', () => {
+    if (timerId) {
+      clearInterval(timerId)
+      timerId = null
+    } else {
+      draw()
+      timerId = setInterval(moveDown, 1000)
+      nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+      displayShape()
+    }
+  })  
 })
