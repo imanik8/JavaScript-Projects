@@ -150,4 +150,26 @@ document.addEventListener('DOMContentLoaded' () => {
       displayShape()
     }
   })  
+
+  //move left and prevent collisions with shapes moving left
+  function moveright() {
+    undraw()
+    const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
+    if (!isAtRightEdge) currentPosition += 1
+    if (current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+      currentPosition -= 1
+    }
+    draw()
+  }
+
+  //move right and prevent collisions with shapes moving right
+  function moveleft() {
+    undraw()
+    const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
+    if (!isAtLeftEdge) currentPosition -= 1
+    if (current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+      currentPosition += 1
+    }
+    draw()
+  }  
 })
