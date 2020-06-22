@@ -256,4 +256,12 @@ document.addEventListener('DOMContentLoaded' () => {
       }
     }
   }  
+
+  //Styling eventListeners
+  hamburgerBtn.addEventListener('click', () => {
+    menu.style.display = 'flex'
+  })
+  span.addEventListener('click', () => {
+    menu.style.display = 'none'
+  })
 })
