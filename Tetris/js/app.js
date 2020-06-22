@@ -209,5 +209,29 @@ document.addEventListener('DOMContentLoaded' () => {
       scoreDisplay.innerHTML = 'end'
       clearInterval(timerId)
     }
+  }
+
+  //show previous tetromino in scoreDisplay
+  const displayWidth = 4
+  const displaySquares = document.querySelectorAll('.previous-grid div')
+  let displayIndex = 0
+
+  const smallTetrominoes = [
+    [1, displayWidth + 1, displayWidth * 2 + 1, 2], /* lTetromino */
+    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], /* zTetromino */
+    [1, displayWidth, displayWidth + 1, displayWidth + 2], /* tTetromino */
+    [0, 1, displayWidth, displayWidth + 1], /* oTetromino */
+    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1] /* iTetromino */
+  ]
+
+  function displayShape() {
+    displaySquares.forEach(square => {
+      square.classList.remove('block')
+      square.style.backgroundImage = 'none'
+    })
+    smallTetrominoes[nextRandom].forEach(index => {
+      displaySquares[displayIndex + index].classList.add('block')
+      displaySquares[displayIndex + index].style.backgroundImage = colors[nextRandom]
+    })
   }  
 })
