@@ -201,5 +201,13 @@ document.addEventListener('DOMContentLoaded' () => {
     }
     current = theTetrominoes[random][currentRotation]
     draw()
+  } 
+  
+  //Game Over
+  function gameOver() {
+    if (current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+      scoreDisplay.innerHTML = 'end'
+      clearInterval(timerId)
+    }
   }  
 })
