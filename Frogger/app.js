@@ -187,4 +187,14 @@ function autoMoveLogs() {
     lose()
   }
 
+  //to start, and pause the game
+  startBtn.addEventListener('click', () => {
+    if(timerId) {
+      clearInterval(timerId)
+    } else {
+      timerId = setInterval(movePieces, 1000)
+      document.addEventListener('keyup', moveFrog)
+    }
+  })
+    
 })
