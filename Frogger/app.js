@@ -75,5 +75,81 @@ document.addEventListener('DOMContentLoaded', () => {
       carRight.classList.add('c2')
       break
     }
+  } 
+  
+//move the logs
+function autoMoveLogs() {
+    logsLeft.forEach(logLeft => moveLogLeft(logLeft))
+    logsRight.forEach(logRight => moveLogRight(logRight))
+  }
+
+  //logs going left
+  function moveLogLeft(logLeft) {
+    switch (true) {
+      case logLeft.classList.contains('l1'):
+      logLeft.classList.remove('l1')
+      logLeft.classList.add('l2')
+      break
+      case logLeft.classList.contains('l2'):
+      logLeft.classList.remove('l2')
+      logLeft.classList.add('l3')
+      break
+      case logLeft.classList.contains('l3'):
+      logLeft.classList.remove('l3')
+      logLeft.classList.add('l4')
+      break
+      case logLeft.classList.contains('l4'):
+      logLeft.classList.remove('l4')
+      logLeft.classList.add('l5')
+      break
+      case logLeft.classList.contains('l5'):
+      logLeft.classList.remove('l5')
+      logLeft.classList.add('l1')
+      break
+    }
+  }
+
+  //logs going right
+  function moveLogRight(logRight) {
+    switch (true) {
+      case logRight.classList.contains('l1'):
+      logRight.classList.remove('l1')
+      logRight.classList.add('l5')
+      break
+      case logRight.classList.contains('l2'):
+      logRight.classList.remove('l2')
+      logRight.classList.add('l1')
+      break
+      case logRight.classList.contains('l3'):
+      logRight.classList.remove('l3')
+      logRight.classList.add('l2')
+      break
+      case logRight.classList.contains('l4'):
+      logRight.classList.remove('l4')
+      logRight.classList.add('l3')
+      break
+      case logRight.classList.contains('l5'):
+      logRight.classList.remove('l5')
+      logRight.classList.add('l4')
+      break
+    }
+  }
+
+  //move the frog when its on the log moving left
+  function moveWithLogLeft() {
+    if (currentIndex >= 27 && currentIndex < 35) {
+      squares[currentIndex].classList.remove('frog')
+      currentIndex += 1
+      squares[currentIndex].classList.add('frog')
+    }
+  }
+
+  //move the frog when its on the log moving right
+  function moveWithLogRight() {
+    if (currentIndex > 18 && currentIndex <= 26) {
+      squares[currentIndex].classList.remove('frog')
+      currentIndex -= 1
+      squares[currentIndex].classList.add('frog')
+    }
   }  
 })
